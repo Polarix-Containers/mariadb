@@ -1,6 +1,7 @@
 # MariaDB
 
-![Build, scan & push](https://github.com/Polarix-Containers/mariadb/actions/workflows/build-alpine.yml/badge.svg)
+![Build Alpine, scan & push](https://github.com/Polarix-Containers/mariadb/actions/workflows/build-alpine.yml/badge.svg)
+![Build UBI, scan & push](https://github.com/Polarix-Containers/mariadb/actions/workflows/build-ubi.yml/badge.svg)
 
 Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
 

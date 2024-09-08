@@ -33,6 +33,7 @@ jobs:
       - name: Extract version for tags
         run: |
           echo "FULL_VERSION=$(grep -oP '(?<=VERSION=).*' Dockerfile)" >> $GITHUB_ENV
+          echo "MAJOR_VERSION=$(grep -oP '(?<=VERSION=).*' Dockerfile | head -c2)" >> $GITHUB_ENV
 
       # Add support for more platforms with QEMU (optional)
       # https://github.com/docker/setup-qemu-action
@@ -58,6 +59,7 @@ jobs:
           tags: |
             ${{ env.TAG }}
             ${{ env.FULL_VERSION }}-${{ env.TAG }}
+            ${{ env.MAJOR_VERSION }}-${{ env.TAG }}
 
       - name: Build and push Docker image
         id: build-and-push

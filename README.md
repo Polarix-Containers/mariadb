@@ -17,6 +17,7 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
 - Unprivileged image: you should check your volumes' permissions (eg `/var/lib/mysql`), default UID/GID is 999.
 - Built on the upstream MariaDB UBI image.
 - Removes unnecessary gosu SUID binary.
+- Uses FUTURE crypto policy.
 - Has a lot of outdated packages with *maybe* some downstream patching.
 - Generates a lot of vulnerbility scanner noise - hard to tell what is a false positive and what is not.
 - **Tags**: `ubi`, `latest`.

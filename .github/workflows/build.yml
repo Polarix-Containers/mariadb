@@ -32,8 +32,8 @@ jobs:
 
       - name: Extract version for tags
         run: |
-          echo "FULL_VERSION=$(grep -oP '(?<=VERSION=).*' Alpine/Dockerfile)" >> $GITHUB_ENV
-          echo "MAJOR_VERSION=$(grep -oP '(?<=VERSION=).*' Alpine/Dockerfile | head -c2)" >> $GITHUB_ENV
+          echo "FULL_VERSION=$(grep -oP '(?<=VERSION=).*' Dockerfile)" >> $GITHUB_ENV
+          echo "MAJOR_VERSION=$(grep -oP '(?<=VERSION=).*' Dockerfile | head -c2)" >> $GITHUB_ENV
 
       # Add support for more platforms with QEMU (optional)
       # https://github.com/docker/setup-qemu-action
@@ -65,7 +65,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
-          context: Alpine
+          context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}

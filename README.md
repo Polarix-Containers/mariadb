@@ -2,7 +2,7 @@
 
 ![Build Alpine, scan & push](https://github.com/Polarix-Containers/mariadb/actions/workflows/build.yml/badge.svg)
 ![Build UBI 11, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-11.yml/badge.svg)
-![Build UBI 10, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-11.yml/badge.svg)
+![Build UBI 10, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-10.yml/badge.svg)
 ![Build UBI LTS, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-lts.yml/badge.svg)
 
 Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).

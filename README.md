@@ -1,7 +1,8 @@
 # MariaDB
 
 ![Build Alpine, scan & push](https://github.com/Polarix-Containers/mariadb/actions/workflows/build.yml/badge.svg)
-![Build UBI, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-11.yml/badge.svg)
+![Build UBI 11, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-11.yml/badge.svg)
+![Build UBI 10, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-11.yml/badge.svg)
 ![Build UBI LTS, scan & push](https://github.com/Polarix-Containers/mariadb-ubi/actions/workflows/build-lts.yml/badge.svg)
 
 Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
@@ -22,7 +23,6 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
 - Uses FUTURE crypto policy.
 - Has a lot of outdated packages with *maybe* some downstream patching.
 - Generates a lot of vulnerbility scanner noise - hard to tell what is a false positive and what is not.
-- **Tags**: `ubi`, `latest`, `ubi-lts`.
 - Source: https://github.com/Polarix-Containers/mariadb-ubi
 
 ### Sample Docker Compose config

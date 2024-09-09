@@ -21,7 +21,7 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
 - Uses FUTURE crypto policy.
 - Has a lot of outdated packages with *maybe* some downstream patching.
 - Generates a lot of vulnerbility scanner noise - hard to tell what is a false positive and what is not.
-- **Tags**: `ubi`, `latest`.
+- **Tags**: `ubi`, `latest`, `ubi-lts`.
 - Source: https://github.com/Polarix-Containers/mariadb-ubi
 
 ### Sample Docker Compose config

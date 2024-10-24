@@ -16,7 +16,7 @@ ARG GID
 
 # Pinning UID and GID here because the UID automatically created
 # might change over time.
-RUN adduser -h /var/lib/mysql -g ${GID} -u ${UID} --disabled-password --system --gecos "" mysql
+RUN adduser -u ${UID} -g ${GID} -h /var/lib/mysql --disabled-password --system mysql
 
 RUN apk -U upgrade \
     && apk add --no-cache bash coreutils libstdc++ mariadb mariadb-backup mariadb-client mariadb-server-utils pwgen rsync tzdata xz zstd \

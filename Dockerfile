@@ -16,7 +16,8 @@ ARG GID
 
 # Pinning UID and GID here because the UID automatically created
 # might change over time.
-RUN adduser -u ${UID} -g ${GID} --disabled-password --system --home /var/lib/mysql mysql
+RUN addgroup -g ${GID} mysql \
+    && adduser -u ${UID} --ingroup mysql --disabled-password --system --home /var/lib/mysql mysql
 
 RUN apk -U upgrade \
     && apk add --no-cache bash coreutils libstdc++ mariadb mariadb-backup mariadb-client mariadb-server-utils pwgen rsync tzdata xz zstd \

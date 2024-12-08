@@ -30,7 +30,7 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
   mariadb:
     container_name: mariadb
     restart: unless-stopped
-    image: ghcr.io/polarix-containers/mariadb:10.11-alpine
+    image: ghcr.io/polarix-containers/mariadb:11.4-alpine
     volumes:
       - "./mariadb:/var/lib/mysql:Z"
     environment:

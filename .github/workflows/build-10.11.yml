@@ -1,21 +1,21 @@
-name: Build Alpine
+name: Build Alpine 10.11
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-    # Ignore Markdown files
-    paths-ignore:
-      - '**.md'
+    paths:
+      - '.github/workflows/build-10.11.yml'
+      - '10.11/**'
   schedule:
     # Build the image daily
-    - cron: '0 1 * * *'
+    - cron: '15 0 * * *'
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: polarix-containers/mariadb
-  TAG: alpine
+  TAG: 10.11
 
 jobs:
   build:
@@ -58,14 +58,14 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             ${{ env.TAG }}
-            ${{ env.FULL_VERSION }}-${{ env.TAG }}
-            ${{ env.MAJOR_VERSION }}-${{ env.TAG }}
+            ${{ env.FULL_VERSION }}-alpine
+            ${{ env.MAJOR_VERSION }}-alpine
 
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ${{ env.TAG }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}

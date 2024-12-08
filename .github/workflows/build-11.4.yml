@@ -30,11 +30,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get version
-        run: |
-          echo "FULL_VERSION=$(grep -oP '(?<=VERSION=).*' Dockerfile)" >> $GITHUB_ENV
-          echo "MAJOR_VERSION=$(grep -oP '(?<=VERSION=).*' Dockerfile | head -c2)" >> $GITHUB_ENV
-
       # Add support for more platforms with QEMU (optional)
       # https://github.com/docker/setup-qemu-action
       - name: Set up QEMU
@@ -59,8 +54,8 @@ jobs:
           tags: |
             alpine
             ${{ env.TAG }}
-            ${{ env.FULL_VERSION }}-alpine
-            ${{ env.MAJOR_VERSION }}-alpine
+            ${{ env.TAG }}-alpine
+            11-alpine
 
       - name: Build and push Docker image
         id: build-and-push

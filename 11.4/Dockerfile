@@ -20,7 +20,8 @@ RUN addgroup -g ${GID} mysql \
     && adduser -u ${UID} --ingroup mysql --disabled-password --system --home /var/lib/mysql mysql
 
 RUN apk -U upgrade \
-    && apk add --no-cache bash coreutils libstdc++ mariadb mariadb-backup mariadb-client mariadb-server-utils pwgen rsync tzdata xz zstd \
+    && apk add --no-cache bash ca-certificates coreutils libstdc++ mariadb mariadb-backup mariadb-client mariadb-server-utils pwgen rsync tzdata xz zstd \
+    && update-ca-certificates \
     # Alpine does not provide an aarch64 package for galera
     && if [ $(arch) = 'x86_64' ]; then apk add --no-cache galera procps-ng pv; fi \
     && rm -rf /var/cache/apk/* /etc/my.cnf /etc/my.cnf.d/mariadb-server.cnf

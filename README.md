@@ -41,7 +41,7 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
     user: "3003:3003"
     read_only: true
     tmpfs:
-      - /var/tmp
+      - /var/tmp:mode=0770,uid=3003,gid=3003,noexec,nosuid,nodev
       - /run/mariadb:size=50M,mode=0770,uid=3003,gid=3003,noexec,nosuid,nodev
     security_opt:
       - "no-new-privileges=true"

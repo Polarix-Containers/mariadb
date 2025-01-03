@@ -16,7 +16,8 @@ ARG GID
 
 # Pinning UID and GID here because the UID automatically created
 # might change over time.
-RUN addgroup -g ${GID} mysql \
+RUN --network=none \
+    addgroup -g ${GID} mysql \
     && adduser -u ${UID} --ingroup mysql --disabled-password --system --home /var/lib/mysql mysql
 
 RUN apk -U upgrade \

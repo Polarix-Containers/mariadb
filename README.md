@@ -7,7 +7,7 @@
 Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
 
 ### Alpine
-- Unprivileged image: you should check your volumes' permissions (eg `/var/lib/mysql`), default UID/GID is 3003. We cannot use 999 like upstream as it is already used by another user.
+- Unprivileged image: you should check your volumes' permissions (eg `/var/lib/mysql`), default UID/GID is 200011.
 - Built on top of Alpine, with MariaDB provided by Alpine repositories.
 - Alpine tends to be behind upstream MariaDB and stick to LTS branches, so you will not get the latest version of MariaDB with this image.
 - Generally more up-to-date packages in the OS than Red Hat UBI.
@@ -16,7 +16,7 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
 - **Tag**: `alpine`. Should Alpine start getting the latest MariaDB versions, it will get the `latest` tag.
 
 ### UBI
-- Unprivileged image: you should check your volumes' permissions (eg `/var/lib/mysql`), default UID/GID is 999.
+- Unprivileged image: you should check your volumes' permissions (eg `/var/lib/mysql`), default UID/GID is 200011.
 - Built on the upstream MariaDB UBI image.
 - Removes unnecessary gosu SUID binary.
 - Uses FUTURE crypto policy.
@@ -38,7 +38,7 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
       - MARIADB_DATABASE=${MARIADB_DATABASE}
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PASSWORD=${MARIADB_PASSWORD}
-    user: "3003:3003"
+    user: "200011:200011"
     read_only: true
     tmpfs:
       - /var/tmp:mode=0770,uid=3003,gid=3003,noexec,nosuid,nodev

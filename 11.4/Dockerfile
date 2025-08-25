@@ -1,7 +1,7 @@
 # We pin alpine version and MariaDB version here, because they go together.
 
 ARG VERSION=11.4
-ARG ALPINE=3.21
+ARG ALPINE=3.22
 ARG UID=200011
 ARG GID=200011
 

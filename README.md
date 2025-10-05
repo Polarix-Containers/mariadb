@@ -38,6 +38,10 @@ Drop-in replacement for the [official image](https://hub.docker.com/_/mariadb).
       - MARIADB_DATABASE=${MARIADB_DATABASE}
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 15s
+      timeout: 5s
     user: "200011:200011"
     read_only: true
     tmpfs:

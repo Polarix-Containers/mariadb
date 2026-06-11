@@ -1,4 +1,4 @@
-name: Build Alpine 11.4
+name: Build Alpine 11.8
 
 on:
   workflow_dispatch:
@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/build-11.4.yml'
-      - '11.4/**'
+      - '.github/workflows/build-11.8.yml'
+      - '11.8/**'
   schedule:
     # Build the image daily
     - cron: '15 0 * * *'
@@ -15,7 +15,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: polarix-containers/mariadb
-  TAG: 11.4
+  TAG: 11.8
 
 jobs:
   build:
@@ -52,8 +52,12 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
+            alpine
             ${{ env.TAG }}
             ${{ env.TAG }}-alpine
+            11-alpine
+            lts
+            lts-alpine
 
       - name: Build and push Docker image
         id: build-and-push
